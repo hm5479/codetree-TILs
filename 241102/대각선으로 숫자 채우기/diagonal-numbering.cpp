@@ -7,17 +7,36 @@ int main() {
     int arr[n][m];
 
     for (int col = 0; col < m; col++) {
-        int tmp = col;
-        for (int row = 0; row < n && tmp >= 0; row++) {
-            arr[row][tmp--] = cnt++;
+        int curr_col = col;
+        int curr_row=0;
+
+        while(curr_row < n && curr_col >= 0){
+            arr[curr_row][curr_col] = cnt;
+
+            cnt++;
+            curr_row++;
+            curr_col--;
         }
+
+        // for (int row = 0; row < n && curr_col >= 0; row++) {
+        //     arr[row][curr_col--] = cnt++;
+        // }
     }
 
     for (int row = 1; row < n; row++) {
-        int tmp = row;
-        for (int col = m - 1; tmp < n && col>=0; tmp++, col--) {
-            arr[tmp][col] = cnt++;
+        int curr_row = row;
+        int curr_col = m - 1;
+
+        while(curr_row < n && curr_col >= 0){
+            arr[curr_row][curr_col] = cnt;
+
+            cnt++;
+            curr_row++;
+            curr_col--;
         }
+        // for (int col = m - 1; curr_row < n && col>=0; curr_row++, col--) {
+        //     arr[curr_row][col] = cnt++;
+        // }
     }
 
     // 출력
