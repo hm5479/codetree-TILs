@@ -8,7 +8,6 @@ int main() {
     int endOfMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     while (true) {
-$0
         if (d1 == d2 && m1 == m2) break;
 
         d1++;
