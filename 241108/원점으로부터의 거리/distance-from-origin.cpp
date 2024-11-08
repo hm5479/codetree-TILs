@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <cstring>
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 class Point {
@@ -15,10 +16,7 @@ class Point {
     }
 
     int getInstance() {
-        if (x < 0 && y >= 0) return -x + y;
-        if (x >= 0 && y < 0) return x + -y;
-        if (x < 0 && y < 0) return -(x + y);
-        return x + y;
+        return abs(x) + abs(y);
     }
 };
 
