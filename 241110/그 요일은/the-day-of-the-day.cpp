@@ -28,8 +28,9 @@ int main() {
         if (yoil == yoils[i]) yoilNum = i;
     }
 
-    int tot = (diff - yoilNum) / 7;
-    if (yoil == "Mon") tot++; 
+    int aaa = (diff-yoilNum);
+    int tot = (diff-yoilNum) / 7 ;
+    if(aaa%7==0) tot++;
 
     cout << tot;
 }
