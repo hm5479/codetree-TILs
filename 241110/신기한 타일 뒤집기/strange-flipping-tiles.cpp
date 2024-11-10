@@ -1,11 +1,11 @@
-#include <algorithm>
 #include <iostream>
+#define MAX_K 100000
 using namespace std;
 
-// to white (-1)
+// to white (2)
 int Left(int tile[], int x, int now) {
     while (x--) {
-        tile[now--] = -1;
+        tile[now--] = 2;
     }
     return ++now;
 }
@@ -19,9 +19,9 @@ int Right(int tile[], int x, int now) {
 }
 
 int main() {
-    int n, now = 1000000;
+    int n, now = MAX_K;
     cin >> n;
-    int tiles[2000000] = {0};
+    int tiles[MAX_K * 2] = {0};
     
     int x;
     string dir;
@@ -37,7 +37,7 @@ int main() {
     int black = 0, white = 0;
 
     for (int el : tiles) {
-        if (el == -1)
+        if (el == 2)
             white++;
         else if (el == 1)
             black++;
