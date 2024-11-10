@@ -24,13 +24,21 @@ int main() {
     int diff = days2 - days1;
     int yoilNum;
 
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < yoils->length(); i++) {
         if (yoil == yoils[i]) yoilNum = i;
     }
 
-    int aaa = (diff-yoilNum);
-    int tot = (diff-yoilNum) / 7 ;
-    if(aaa%7==0) tot++;
+    int ans = 0;
+    int tmp = 0;
+    while (true) {
+        if (tmp > diff) break;
 
-    cout << tot;
+        if ((tmp-yoilNum) % 7 == 0) {
+            ans++;
+        }
+
+        tmp++;
+    }
+
+    cout << ans;
 }
