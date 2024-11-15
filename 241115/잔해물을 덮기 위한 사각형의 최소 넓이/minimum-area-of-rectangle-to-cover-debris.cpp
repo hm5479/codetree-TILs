@@ -25,23 +25,28 @@ void deleteArr() {
     }
 }
 
-void findArr() {
+bool findArr() {
 
-    int minR = -1, minC;    
+    int firstR = 0, firstC = 0;    
+    bool flag = false;
+
     for (int i = 0; i < MAX_M; i++) {
         for (int j = 0; j < MAX_M; j++)
             if (arr[i][j] == 1) {
-                minR = i;
-                minC = j;
+                firstR = i;
+                firstC = j;
+                flag = true;
                 break;
             }
-        if(minR != -1) break;
+        if(flag) break;
     }
+    if(!flag) return false;
 
-    x[4] = minR;
-    x[5] = minR;
-    y[4] = minC;
-    y[5] = minC;
+    x[4] = firstR;
+    x[5] = firstR;
+    y[4] = firstC;
+    y[5] = firstC;
+
 
     for (int i = 0; i < MAX_M; i++) {
         for (int j = 0; j < MAX_M; j++) {
@@ -54,10 +59,11 @@ void findArr() {
             }
         }
     }
+    return true;
 }
 
 int main() {
-    for (int i = 0; i < 3; i++){
+    for (int i = 0; i <= 3; i++){
         cin >> x[i] >> y[i];
         x[i]+=OFFSET;
         y[i]+=OFFSET;
@@ -69,9 +75,12 @@ int main() {
     // 두번째 직사각형으로 덮기
     deleteArr();
 
+    int ans;
     // 최소 직사각형의 좌측하단, 우측상단 좌표 찾기
-    findArr();
-
-    int ans = (x[5] - x[4] + 1) * (y[5] - y[4] + 1);
+    if(findArr())
+        ans = (x[5] - x[4] + 1) * (y[5] - y[4] + 1);
+    else
+        ans = 0;
+    
     cout << ans;
 }
