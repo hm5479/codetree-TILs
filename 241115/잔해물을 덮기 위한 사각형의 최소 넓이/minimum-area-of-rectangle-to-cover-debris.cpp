@@ -57,7 +57,11 @@ void findArr() {
 }
 
 int main() {
-    for (int i = 0; i < 3; i++) cin >> x[i] >> y[i];
+    for (int i = 0; i < 3; i++){
+        cin >> x[i] >> y[i];
+        x[i]+=OFFSET;
+        y[i]+=OFFSET;
+    }
 
     // 첫번째 직사각형 색칠
     paintArr();
