@@ -12,13 +12,9 @@ int main() {
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++) {
             for (int k = 1; k <= n; k++) {
-                bool flag = false;
-
-                if (i >= arr[0] - 2 && i <= arr[0] + 2 
-                || j >= arr[1] - 2 && j <= arr[1] + 2 
-                || k >= arr[2] - 2 && k <= arr[2] + 2) flag = true;
-
-                if (flag) cnt++;
+                if (abs(i-arr[0]) <= 2 || abs(j-arr[1]) <=2 ||
+                abs(k-arr[2] <= 2))
+                    cnt++;
             }
         }
     }
