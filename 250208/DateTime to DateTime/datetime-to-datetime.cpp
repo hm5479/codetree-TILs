@@ -14,5 +14,9 @@ int main() {
     cin >> A >> B >> C;  // 일 시간 분
 
     int day = getDays(11, A) - getDays(11, 11);
-    cout << (day * 24 * 60) - (11 * 60 + 11) + (B * 60 + C);
+    int ans = (day * 24 * 60) - (11 * 60 + 11) + (B * 60 + C);
+    if (ans < 0)
+        cout << -1;
+    else
+        cout << ans;
 }
